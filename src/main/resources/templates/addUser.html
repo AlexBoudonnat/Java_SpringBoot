@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Getting Started: Add an User</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<h1>Créer un utilisateur:</h1>
+
+	<!--  
+         In Thymeleaf the equivalent of
+         JSP's ${pageContext.request.contextPath}/edit.html
+         would be @{/edit.html}         
+         -->
+
+	<form th:action="@{addUser}" th:object="${user}" method="POST">
+		Prénom: <input type="text" th:field="*{firstName}" /> <span
+			th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"
+			style="color: red">firstName Error</span>
+			<br /> Nom: <input
+			type="text" th:field="*{lastName}" /> <span
+			th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"
+			style="color: red">lastName Error</span>
+			<br /> Pseudo: <input
+			type="text" th:field="*{userName}" /> <span
+			th:if="${#fields.hasErrors('userName')}" th:errors="*{userName}"
+			style="color: red">userName Error</span>
+			<br /> Ville: <input
+			type="text" th:field="*{town}" /> <span
+			th:if="${#fields.hasErrors('town')}" th:errors="*{town}"
+			style="color: red">town Error</span>
+			<br /> Age: <input type="text"
+			th:field="*{age}" /> <span th:if="${#fields.hasErrors('age')}"
+			th:errors="*{age}" style="color: red">age Error</span>
+			<br />
+		<br /> <input type="submit" value="Create" />
+	</form>
+
+	<br />
+	<br />
+	<a th:href="@{/web/userlist}">Retour à la liste d'utilisateurs</a>
+</body>
+</html>

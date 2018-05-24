@@ -1,0 +1,20 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Getting Started: List of Users</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<h1>User List</h1>
+	<br />
+	<div th:each="user : ${users}">
+		<a th:href="@{'user/'+${user.id}}"> <span
+			th:utext="${user.firstName}">...</span> <span
+			th:utext=" ${user.lastName}">...</span>
+		</a>
+	</div>
+	<br />
+	<br />
+	<a href="addUser">Ajouter un utilisateur</a>
+</body>
+</html>

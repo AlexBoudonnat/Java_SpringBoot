@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Getting Started: User Profile</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<h1>User Profile</h1>
+	<br />
+	<div>
+		Prénom : <span th:utext="${user.firstName}">...</span>
+	</div>
+	<div>
+		Nom : <span th:utext="${user.lastName}">...</span>
+	</div>
+	<div>
+		Pseudo : <span th:utext="${user.userName}">...</span>
+	</div>
+	<div>
+		Ville : <span th:utext="${user.town}">...</span>
+	</div>
+	<div>
+		Age : <span th:utext="${user.age} + ' ans'">...</span>
+	</div>
+	<br />
+	<br />
+	<a th:href="@{'/web/updateuser/'+${user.id}}">Modifier
+		l'utilisateur</a>
+	<br />
+	<a th:href="@{'/web/deleteuser/'+${user.id}}">Supprimer
+		l'utilisateur</a>
+	<br />
+	<a th:href="@{/web/userlist}">Retour à la liste d'utilisateurs</a>
+</body>
+</html>
